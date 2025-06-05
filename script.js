@@ -1,4 +1,3 @@
-// Mobile Navigation Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -7,13 +6,11 @@ hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('active');
 });
 
-// Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
     hamburger.classList.remove('active');
     navMenu.classList.remove('active');
 }));
 
-// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -27,7 +24,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Navbar background change on scroll
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 100) {
@@ -37,7 +33,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Animate elements on scroll
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -52,7 +47,6 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
     const animateElements = document.querySelectorAll('.gadget-card, .feature-card, .mission-card, .team-member');
     
@@ -64,33 +58,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Contact form handling
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form data
         const formData = new FormData(this);
         const name = formData.get('name');
         const email = formData.get('email');
         const subject = formData.get('subject');
         const message = formData.get('message');
         
-        // Simple validation
         if (!name || !email || !subject || !message) {
             alert('Please fill in all fields');
             return;
         }
         
-        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             alert('Please enter a valid email address');
             return;
         }
         
-        // Simulate form submission
         const submitBtn = this.querySelector('.submit-btn');
         const originalText = submitBtn.textContent;
         submitBtn.textContent = 'Sending...';
@@ -105,7 +94,6 @@ if (contactForm) {
     });
 }
 
-// Gadget cards hover effect
 document.querySelectorAll('.gadget-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) scale(1.02)';
@@ -116,7 +104,6 @@ document.querySelectorAll('.gadget-card').forEach(card => {
     });
 });
 
-// MacBook 3D interaction
 const macbook = document.querySelector('.macbook');
 if (macbook) {
     let mouseX = 0;
@@ -146,7 +133,6 @@ if (macbook) {
     });
 }
 
-// Typing animation for code editor
 const codeLines = document.querySelectorAll('.code-line');
 if (codeLines.length > 0) {
     let currentLine = 0;
@@ -163,7 +149,6 @@ if (codeLines.length > 0) {
                 setTimeout(typeNextLine, 2500);
             }, 500);
         } else {
-            // Reset animation
             setTimeout(() => {
                 currentLine = 0;
                 codeLines.forEach(line => {
@@ -174,11 +159,9 @@ if (codeLines.length > 0) {
         }
     }
     
-    // Start typing animation
     setTimeout(typeNextLine, 2000);
 }
 
-// Parallax effect for hero section
 window.addEventListener('scroll', () => {
     const scrolled = window.pageYOffset;
     const heroVideo = document.querySelector('.hero-video');
@@ -193,11 +176,9 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Add loading animation
 window.addEventListener('load', () => {
     document.body.classList.add('loaded');
     
-    // Animate hero content
     const heroTitle = document.querySelector('.hero-title');
     const heroSubtitle = document.querySelector('.hero-subtitle');
     const ctaButton = document.querySelector('.cta-button');
@@ -213,7 +194,6 @@ window.addEventListener('load', () => {
     }
 });
 
-// Feature cards animation on hover
 document.querySelectorAll('.feature-card').forEach(card => {
     card.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-10px) rotateY(5deg)';
@@ -224,7 +204,6 @@ document.querySelectorAll('.feature-card').forEach(card => {
     });
 });
 
-// Add click ripple effect to buttons
 document.querySelectorAll('button, .cta-button').forEach(button => {
     button.addEventListener('click', function(e) {
         const ripple = document.createElement('span');
@@ -246,7 +225,6 @@ document.querySelectorAll('button, .cta-button').forEach(button => {
     });
 });
 
-// Add ripple effect styles
 const style = document.createElement('style');
 style.textContent = `
     button, .cta-button {
